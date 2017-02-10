@@ -10,7 +10,7 @@ do
 	#this concatenates the directory with the file name to feed to betty		
 	FILECHANGE=${dir}${file}
 
-	#this is defines what an extension is.
+	#shell parameter expansion
 	EXT=${file##*.}
 
 	#if the file ends with .c, betty checks the file

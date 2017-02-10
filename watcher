@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# get the current path
+CURPATH=`pwd`
+
+# inotify command to watch the path
+inotifywait -mr --timefmt '%d/%m/%y %H:%M' --format '%T %w %f' \
+	-e close_write $CURPATH | while read date time dir file;
+do
+		
+	FILECHANGE=${dir}${file}
+	EXT=${file##*.}
+	if [ $EXT = "c" ]; then
+	echo Checking ${file}
+	betty ${dir}${file}
+	fi
+			
+done

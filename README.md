@@ -22,5 +22,7 @@ Holberton C Watcher is a script built on top of [inotify-tools](https://github.c
 ### IMPORTANT
 To keep the watcher running, you will need to open it in a different terminal buffer. If you exit out of the terminal buffer, the watcher will no longer run.
 
+Also, this assumes you have Betty installed and you can run it using the command `betty`. If this isn't the case, this script won't work for you.
+
 ### Notes
 In the script, the file path is defined by the variable $CURPATH which runs the command `pwd` which allows the watcher to run your current directory and it's child directories

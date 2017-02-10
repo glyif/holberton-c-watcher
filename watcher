@@ -7,9 +7,13 @@ CURPATH=`pwd`
 inotifywait -mr --timefmt '%d/%m/%y %H:%M' --format '%T %w %f' \
 	-e close_write $CURPATH | while read date time dir file;
 do
-		
+	#this concatenates the directory with the file name to feed to betty		
 	FILECHANGE=${dir}${file}
+
+	#this is defines what an extension is.
 	EXT=${file##*.}
+
+	#if the file ends with .c, betty checks the file
 	if [ $EXT = "c" ]; then
 	echo Checking ${file}
 	betty ${dir}${file}
